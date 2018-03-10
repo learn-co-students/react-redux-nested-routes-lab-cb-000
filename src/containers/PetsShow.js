@@ -8,9 +8,22 @@ const PetsShow = ({ pet }) =>
   </div>;
 
 const mapStateToProps = (state, ownProps) => {
-  return {
-    pet: {}
-  };
-};
+  let pet = {}
+  const petId = ownProps.match.params.petId
+  if (state.pets.length > 0) {
+    pet = Object.assign({}, state.pets.find(pet => pet.id === petId))
+  }
+
+  return { pet }
+}
+//const mapStateToProps = (state, ownProps) => {
+//  const pet = state.pets.find(pet => pet.id === +ownProps.match.params.petId)
+//  
+//  if (pet) {
+//    return { pet }
+//  } else {
+//    return { pet: {} }
+//  }
+//};
 
 export default connect(mapStateToProps)(PetsShow);
