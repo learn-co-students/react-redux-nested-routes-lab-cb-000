@@ -14,7 +14,15 @@ class PetsPage extends Component {
 
   render() {
     return (
-      <div>Pets Page</div>
+      <div>
+        <PetsList pets={this.props.pets} />
+        <Switch> {/* Make sure to wrap all of your Routes as children of the Switch component*/ }
+          <Route path={`${this.props.match.url}/new`} component={PetsNew} />
+          <Route path={`${this.props.match.url}/:petId`} component={PetsShow}/>
+          <Route exact path={this.props.match.url} render={() => (
+            <h3>Please select a Movie from the list.</h3>
+          )}/>
+        </Switch></div>
     )
   }
 };
