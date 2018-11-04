@@ -13,8 +13,16 @@ class PetsPage extends Component {
   }
 
   render() {
+
+
     return (
-      <div>Pets Page</div>
+      <div>
+        <PetsList pets={this.props.pets} />
+        <switch>
+          <Route path={`/pets/:petId`} component={PetsShow} />
+          <Route path={`/pets/new`} component={PetsNew} />
+        </switch>
+      </div>
     )
   }
 };
