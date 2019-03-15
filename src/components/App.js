@@ -1,8 +1,9 @@
 import React from 'react';
 import { BrowserRouter as Router, NavLink, Route } from 'react-router-dom';
 import PetsPage from '../containers/PetsPage';
+import PetsShow from '../containers/PetsShow';
 
-const App = (props) => 
+const App = (props) =>
   <Router>
     <div>
       <div style={{ borderBottom: '2px solid black', paddingBottom: '10px', marginBottom: '12px' }}>

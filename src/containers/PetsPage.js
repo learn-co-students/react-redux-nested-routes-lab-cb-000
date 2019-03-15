@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Route, Switch } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { fetchPets } from '../actions';
 import PetsNew from './PetsNew';
 import PetsShow from './PetsShow';
 import PetsList from '../components/PetsList';
+
 
 class PetsPage extends Component {
 
@@ -14,9 +16,23 @@ class PetsPage extends Component {
 
   render() {
     return (
-      <div>Pets Page</div>
+      <div>
+        <div>Pets Page</div>
+          <ul>
+            {this.props.pets.map (function(pet){
+              return(
+                <Link to={`/pets/${pet.id}`} >
+                  <li>
+                    Name: {pet.name} ; Description: {pet.description}
+                  </li>
+                </Link>
+              )
+            })}
+          </ul>
+      </div>
     )
   }
+
 };
 
 const mapStateToProps = state => {
